@@ -1,0 +1,585 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2018-08-05 Sun 13:30 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Datacamp notes</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="Myrthe Boone" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2017 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "center",
+        displayIndent: "0em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "right",
+               TagIndent: ".8em"
+             }
+});
+</script>
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">Datacamp notes</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org7f38791">1. Introduction</a></li>
+<li><a href="#org5a5c7fe">2. Different types of machine learning</a>
+<ul>
+<li><a href="#org11093fe">2.1. Logistic Regression</a></li>
+</ul>
+</li>
+<li><a href="#orgb0eac0a">3. Preparation</a>
+<ul>
+<li><a href="#org60be844">3.1. A first look at the dataset</a></li>
+<li><a href="#orgc396397">3.2. Preprocessing techniques</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<p>
+The goal of this paper is not to make predictions about the future. These results may teach us something about the circumstances during the time that the Titanic sank. Teaches us something about the civilization back in those days. (Women, children etc saved first?). Furthermore, this paper is written because I wanted to learn something about machine learning and programming using Python. 
+</p>
+
+
+<div id="outline-container-org7f38791" class="outline-2">
+<h2 id="org7f38791"><span class="section-number-2">1</span> Introduction</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+The year was<sup><a id="fnr.1" class="footref" href="#fn.1">1</a></sup> 
+</p>
+</div>
+</div>
+
+
+
+<div id="outline-container-org5a5c7fe" class="outline-2">
+<h2 id="org5a5c7fe"><span class="section-number-2">2</span> Different types of machine learning</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+Machine learning consists of giving computers the ability to learn and make decisions from data without being explicitly programmed. Using machine learning techniques to build predictive models.
+</p>
+
+<p>
+A well-known example is detecting spam in your email inbox. Face recognition or teaching computers how to play chess, AlphaGo. A lot of different types of machine learning exist. Two examples will be discussed. 
+</p>
+
+
+<p>
+<b>Unsupervised learning</b>
+This is a version of machine learning where the computer has to uncover hidden patterns from unlabeled data. 
+</p>
+
+<p>
+For instance, grouping customers in categories based on buying behaviour without knowing in advance what these categories might be. 
+</p>
+
+<p>
+<b>Supervised learning</b>
+Where unsupervised learning has to make decisions from data that isn't labeled, supervised machine learning deals with labeled data. 
+</p>
+
+<p>
+Data points. These are samples described using predictor variables and a target variable. Organised in a table with rows and columns. 
+The goal is to predict the target variable, in this case 1 or 0 representing survived or not survived respectively in our Titanic dataset, given the predictor variables.Such as / examples of our predictor variables: class, gender, age, siblings etc. 
+</p>
+
+<p>
+Two different types of supervised learning. 
+</p>
+<ul class="org-ul">
+<li>Classification : target variable consists of categories.</li>
+<li>Regression : target variable is continuous.</li>
+</ul>
+
+<p>
+Predicting survival on the Titanic is a classification problem. We have to classify, based on our predictor variables, if a person belongs to the class of survived (1) or not survived (0).Titanic using labelled data. More specifically historical data with labels. Data can be collected by experiments or crowd-sourcing. 
+</p>
+
+<p>
+<b>Classification</b>
+Titanic is a binary classification problem. 
+</p>
+
+
+
+<p>
+Goal is to learn from data for which the right output is known so we can make predictions on new data for which we don't know the output. In order to do this, we will use scikitlearn. This is a popular machine learning library for Python. Integrates well with numpy libraries.
+</p>
+
+<p>
+<b>Regression</b>
+</p>
+
+<p>
+<b>Algorithms / programming</b>
+Couple of libraries we will use: 
+</p>
+<ul class="org-ul">
+<li>sklearn</li>
+<li>numpy</li>
+<li>pandas</li>
+<li>matplotlib.pyplot</li>
+</ul>
+
+<p>
+Short description of each package. 
+</p>
+
+<p>
+Common used algorithm for classification problems is KNearestNeighbours. Predict label of a datapoint by looking at the 'k' closest labeled data points. Taking majority vote on what label an undecided point has to have. Creates a set of decision boundaries. 
+</p>
+
+
+<p>
+LogisticRegression
+</p>
+
+<p>
+Other things I will not use, but are worth mentioning because they play a big part in the world of machine learning. 
+</p>
+
+<p>
+All machine learning models implemented as python classes.
+</p>
+<ul class="org-ul">
+<li>Implement algorithms for learning and predicting</li>
+<li>Store the information learned from the data.</li>
+</ul>
+<p>
+Training a model on the data is called 'fitting' a model to the data using the .fit() method. Predict labels of new data using the .predict() method. Don't mention method. Explain what fitting is, error function. This is what you do working with Logistic Regression, not KnearestNeighbours.
+</p>
+
+<p>
+At the end you can measure model performance. Want to know how well our model has performed. Metrics such as accuracy. Which data to use to compute accuracy, which is the fraction of correct predictions. 
+</p>
+
+<p>
+How well will model perform on new data that the algorithm has never seen before. Splitting of your dataset. 
+</p>
+
+<p>
+Fitting actually means that you tell your computer to find a curve that is as close to as many datapoints as possible. y = ax+b
+</p>
+
+\begin{equation}
+y=ax+b
+\end{equation} 
+
+
+<p>
+In this case there is only one predictor variable. But we have more than one predictor variable in our dataset of the Titanic. a and b are parameters of our model. We want to fit a line to the data. Our Titanic dataset has more dimensions. Our line will look something like this, where each x is a different predictor variable. 
+</p>
+
+\begin{equation}
+y=a_1x_1+a_2x_2+a_nx_n+b 
+\end{equation}
+
+
+<p>
+We must specify a coefficient for each feature and a variable b. This is the fitting process. 
+</p>
+
+<p>
+Fitting consists of choosing your a and b. Define an error function for any given line. Choose the line that minimizes the error function / loss function. What is an error function? Explain.
+</p>
+
+<p>
+Line has to be as close to the actual data points as possible. We have to calculate vertical distance between data point and the line. This is called the <b>residual</b>. Minimizing the sum of the residuals will not work because very large positive values will cancel out large negative values. Solution &rarr;  minimize sum of the squares (lossfunction) of residuals. OLS = ordinary least squares. Same as minimizing the mean squared error of the predictions on training set. When you call fit on logistic regression model in scikitlearn, it performs this OLS under the hood. 
+</p>
+</div>
+
+<div id="outline-container-org11093fe" class="outline-3">
+<h3 id="org11093fe"><span class="section-number-3">2.1</span> Logistic Regression</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+In this paper we will use Logistic Regression as our algorithm. The name is misleading because logistic regression is commonly used for classification problems. Logreg outputs probabilities. If p is larger than 0,5 , classify as 1. \(p<0.5\), classify as 0 (not survived). Larger area under ROC curve = better model. Area is called AUC. Popular metric for classification models. AUC using cross validation. If AUC is greater than 0,5, the model is better than just random guessing. 
+</p>
+
+
+<p>
+<code>matplotlib</code>
+</p>
+
+<div class="org-src-container">
+<pre class="src src-ipython"><span style="color: #0000FF;">import</span> numpy <span style="color: #0000FF;">as</span> np
+</pre>
+</div>
+
+
+
+<p>
+Choosing your parameters is called hyperparametertuning. 
+</p>
+<ul class="org-ul">
+<li>Try different values</li>
+<li>Fit all of them separately</li>
+<li>See how well each performs</li>
+<li>Choose best performing one</li>
+</ul>
+<p>
+Important to use crossvalidation! Otherwise, overfitting parameter. 
+</p>
+
+<p>
+1,2,3 - steps Introduction
+</p>
+<ol class="org-ol">
+<li>Split dataset into a training set and test set, new dataset.</li>
+<li>Fit/train classifier to the training set, what is fitting? Difference Knearest and Logistic</li>
+<li>Predict on the test set</li>
+<li>Print the prediction</li>
+<li>Compare predictions with known labels</li>
+</ol>
+
+
+
+
+<p>
+Test_size? 
+</p>
+
+<p>
+Perform your split so that your split reflects labels on your data. You want labels to be distributed as they are in the original dataset. 
+</p>
+
+<p>
+<b>Problems</b>
+KNearestNeighbours
+Overfitting: smaller k, more complex model, erratic pattern
+Underfitting: smoother decision boundary, larger k, less complex model. Generalizing too much, you use too little information.
+</p>
+
+<p>
+Model performance is dependent on the way our data is split. Results are not reliable because of this. We solve this by using cross-validation. <i>insert image of folds</i>. Second fold as test set, fit on remaining data, predict on test set and compute metric of interest. 5-fold cross-validation. k-fold cross validation. More folds is more computationally expensive. 
+</p>
+
+<p>
+Measuring model performance using accuracy. This is a fraction of correctly classified samples. However, this is not always a useful metric. For instance, if we take a look at spam classification. 99% of your email is real and 1% is spam. We instantiate a classifier which classifies all emails as real. Computing the accuracy will give us a score of 99%, which is pretty high. But our classifier is horrible at predicting spam. <b>Class imbalance</b>. We have to use more nuanced metrics, such as the confusion matrix. <i>insert image of confusion matrix</i>. Accuracy, precision, recall, F1 score. High precision &rarr; not many real emails are predicted as spam. High recall &rarr; predicted most spam emails correctly. Confusion matrix in N dimensions? 
+</p>
+
+<ul class="org-ul">
+<li>Underfitting and overfitting</li>
+<li>Train-test split</li>
+<li>Cross-validation</li>
+<li>GridSearch</li>
+</ul>
+
+
+<p>
+Overfitting als je te veel variabelen toevoegt, LogisticRegression. 
+</p>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-orgb0eac0a" class="outline-2">
+<h2 id="orgb0eac0a"><span class="section-number-2">3</span> Preparation</h2>
+<div class="outline-text-2" id="text-3">
+</div><div id="outline-container-org60be844" class="outline-3">
+<h3 id="org60be844"><span class="section-number-3">3.1</span> A first look at the dataset</h3>
+<div class="outline-text-3" id="text-3-1">
+<p>
+First we perform some numerical EDA. EDA stands for exploratory data analysis. This will help us explore our dataset and get a first impression of the information. Not necessary to build a dataframa, for the information is already organised in a table. 
+</p>
+
+<p>
+<i>code with describe etc</i> 
+</p>
+
+<p>
+Next we perform some visual EDA. Scatter matrix, plotting, binary Seaborn's countplot. Possible correlation? Explain / describe diagrams. 
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgc396397" class="outline-3">
+<h3 id="orgc396397"><span class="section-number-3">3.2</span> Preprocessing techniques</h3>
+<div class="outline-text-3" id="text-3-2">
+<p>
+How to deal with missing values, dummies, place of boarding, gender, cabin numbers. Map of Titanic? Need to encode categorical features numerically &rarr; convert to dummy variables. 0 = not that category. 
+</p>
+
+<p>
+Missing data
+</p>
+<ul class="org-ul">
+<li>NaN replace</li>
+<li>drop missing data</li>
+<li>impute missing data: make an educated guess</li>
+</ul>
+
+<p>
+Centering and scaling
+</p>
+<ul class="org-ul">
+<li>Features on larger scales can unduly influence the model.</li>
+<li>We want features on a similar scale. <b>Normalizing</b></li>
+<li>Standardization: substract the mean and divide by variance.</li>
+<li>Substract minimum and divide by the range</li>
+<li>Normalize so that data ranges from -1 to +1</li>
+</ul>
+
+
+
+<p>
+We have to build a classifier that needs to learn from already labeled data. Training data = already labeled data.
+</p>
+
+
+<p>
+Using GridSearchCV or RandomizedSearchCV, we can choose our parameters for KNearestNeighbours (K) and LogisticRegression (C). Large C kan lead to overfitting, small C kan lead to underfitting. 
+</p>
+</div>
+</div>
+</div>
+<div id="footnotes">
+<h2 class="footnotes">Footnotes: </h2>
+<div id="text-footnotes">
+
+<div class="footdef"><sup><a id="fn.1" class="footnum" href="#fnr.1">1</a></sup> <div class="footpara">//www.youtube.com/watch?v=SzA2YODtgK4</div></div>
+
+
+</div>
+</div></div>
+<div id="postamble" class="status">
+<p class="author">Author: Myrthe Boone</p>
+<p class="date">Created: 2018-08-05 Sun 13:30</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>
